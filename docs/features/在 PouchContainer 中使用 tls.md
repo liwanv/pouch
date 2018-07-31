@@ -51,7 +51,7 @@ mkdir -p ${name}
 cp ca.pem ${name}/ca.pem
 ```
 
-执行上述命令后，我们可以看到一个包含建立pouchd的TLS保护所有依赖文件的目录，一般用以下命令来设置启动pouch（用正确的值替换掉变量* name *即可）：
+执行上述命令后，我们可以看到一个包含建立pouchd的TLS保护所有依赖文件的目录，一般用以下命令来设置启动pouch（用正确的值替换掉变量name即可）：
 
 ```shell
 --tlsverify --tlscacert=${name}/ca.pem --tlscert=${name}/cert.pem --tlskey=${name}/key.pem
@@ -64,6 +64,8 @@ cp ca.pem ${name}/ca.pem
 ```
 
 当一个没有证书的客户端或者是一个不是由同一CA发布的证书的客户端想要尝试连接具有TLS保护的pouchd时，连接将被拒绝。
+
+查看原英文文档，请[点击这里](https://github.com/alibaba/pouch/blob/master/docs/features/pouch_with_tls.md)
 
 
 
