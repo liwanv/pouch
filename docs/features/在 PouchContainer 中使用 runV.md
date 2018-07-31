@@ -131,4 +131,4 @@ runV（现在是 katacontainers）提供了一种通用方法，它可以提供�
 ## 结论
 PouchContainer 给出了一种常用方法，可以提供基于管理程序的容器。使用 PouchContainer，用户可以根据特定场景，自行选择使用基于管理程序的容器，或是基于 LXC 的容器。
 
-查看原英文文档，请[点击这里](https://github.com/alibaba/pouch/blob/master/docs/features)
+查看原英文文档，请[点击这里](https://github.com/alibaba/pouch/blob/master/docs/features/pouch_with_runV.md)
