@@ -5,7 +5,7 @@
 
 ## 创建 CA
 
-如下所示，使用通用name pouch_test来创建一个CA。
+如下所示，使用通用名字 pouch_test 来创建一个CA。
 
 ```shell
 openssl req -new -newkey rsa:2048 -days 3650 -nodes -x509 -subj "/C=CN/ST=ZheJiang/L=HangZhou/O=Company/OU=Department/CN=pouch_test" -keyout ca-key.pem -out ca.pem
@@ -29,13 +29,13 @@ mkdir -p ${name}
 cp ca.pem ${name}/ca.pem
 ```
 
-执行上述命令后，我们可以看到一个包含创建pouchd的TLS 保护所需文件的目录，一般用以下命令来设置启动pouch（变量用正确的值替换掉即可）：
+执行上述命令后，我们可以看到一个包含创建pouchd的TLS保护所需所有依赖文件的目录，一般用如下命令来设置启动pouch（变量用正确的值替换掉即可）：
 
 ```shell
 --tlsverify --tlscacert=${name}/ca.pem --tlscert=${name}/cert.pem --tlskey=${name}/key.pem
 ```
 
-此时，当启动pouchd后，它监听的tcp地址只能与使用相同CA证书的客户端建立连接。
+此时，pouchd已经拥有了tls保护，当启动pouchd后，它监听的tcp地址只能与使用相同CA证书的客户端建立连接。
 
 ## 创建客户端证书
 
@@ -51,13 +51,13 @@ mkdir -p ${name}
 cp ca.pem ${name}/ca.pem
 ```
 
-执行上述命令后，目录里将出现所有我们启动pouchd的TLS保护的所需文件，一般用以下命令来设置启动pouch（用正确的值替换掉变量* name *即可）：
+执行上述命令后，我们可以看到一个包含建立pouchd的TLS保护所有依赖文件的目录，一般用以下命令来设置启动pouch（用正确的值替换掉变量* name *即可）：
 
 ```shell
 --tlsverify --tlscacert=${name}/ca.pem --tlscert=${name}/cert.pem --tlskey=${name}/key.pem
 ```
 
-然后目录里将出现包含所有我们需要使用的PouchContainer客户端的文件，例如：可使用此证书用作身份验证来获取pouchd service的版本。
+然后我们可以看到一个包含使用PouchContainer客户端所有依赖文件的目录，例如：将此证书用作身份验证来获取pouchd service的版本。
 
 ```
 ./pouch -H ${server_hostname}:4243 --tlsverify --tlscacert=${path}/ca.pem --tlscert=${path}/cert.pem --tlskey=${path}/key.pem version

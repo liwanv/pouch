@@ -38,7 +38,7 @@ sudo yum install -y qemu qemu-kvm
 ```
 
 ### 安装 runV
-[runV](https://github.com/hyperhq/runv) 不提供二进制包，我们需要基于其源代码来构创建这个二进制文件。
+[runV](https://github.com/hyperhq/runv) 不提供二进制包，我们需要基于其源代码来创建这个二进制文件。
 
 首先，从 Github 克隆 runv 项目的 v1.0.0 版本：
 
@@ -61,7 +61,7 @@ sudo make
 sudo make install
 ```
 
-执行完以上命令，runv 的二进制文件就已经存在于路径 $HOME/go 中了。
+执行完以上命令，runv 的二进制文件就已经存在于路径中了。
 
 
 ### 安装 hyperstart
@@ -76,7 +76,7 @@ cd hyperstart
 sudo make
 ```
 
-在成功创建内核和 initrd.img 之后，我们应该把用户 `kernel` 和 `initrd.img` 复制到 runv 将要查找的默认目录中：
+在成功创建内核和 initrd.img 之后，我们应该把 `guest kernel` 和 `initrd.img` 复制到 runv 将要查找的默认目录中：
 
 ```
 mkdir /var/lib/hyper/
